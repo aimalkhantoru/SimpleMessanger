@@ -32,7 +32,7 @@ export const UserChat = () => {
       <div className="messages-list">
         {currentChat &&
           currentChat.messages.map((item, index) => (
-            <div className="message-body">
+            <div key={'chat_item_' + index} className="message-body">
               <div className="message-text" key={"chatId" + index}>
                 {item.message}
               </div>

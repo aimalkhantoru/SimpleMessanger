@@ -2,7 +2,6 @@ import React, {
   createContext,
   FC,
   useContext,
-  useEffect,
   useReducer,
 } from "react";
 import reducers, { IAction, initialState, IState } from "reducer";
@@ -23,10 +22,6 @@ export const StoreProvider: FC<{ initialValue: IState }> = ({
   initialValue,
 }) => {
   const [state, dispatch] = useReducer(reducers, initialValue);
-  useEffect(() => {
-    console.log("state current: ", state.currentChat);
-    console.log("state all: ", state.allChats);
-  }, [state]);
   return (
     <storeContext.Provider value={{ state, dispatch }}>
       {children}

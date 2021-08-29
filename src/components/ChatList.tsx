@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useStore } from "hooks/useStore";
 
 import "./chatList.css";
@@ -9,9 +9,7 @@ const ChatList = () => {
     state: { allChats, currentChat },
     dispatch,
   } = useStore();
-  useEffect(() => {
-    console.log("currentChat: ", currentChat);
-  }, [currentChat]);
+
 
   const onUserClick = (chat: UserChat) => {
     dispatch({ type: ActionTypes.SET_CURRENT_CHAT, payload: chat });
@@ -21,6 +19,7 @@ const ChatList = () => {
       <ul>
         {allChats.map((chat, index) => (
           <li
+
             onClick={() => {
               onUserClick(chat);
             }}

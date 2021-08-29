@@ -1,6 +1,3 @@
-export interface IObject {
-  [key: string]: any;
-}
 
 export interface Message {
   message: string;
@@ -102,9 +99,11 @@ export const combineReducer = (reducers: IReducer) => {
   };
 };
 
-export default (state = initialState, actions: IAction) => {
+const combineReducers =  (state = initialState, actions: IAction) => {
   return {
     currentChat: CurrentChatReducer(state.currentChat, actions),
     allChats: AllChatReducer(state.allChats, actions),
   };
 };
+
+export default combineReducers;
